@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airwave Compressors × BigChange — Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,500;8..144,700;8..144,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet">
+<style>
+:root{
+  --blue:#0072CE; --blue-d:#005BA5; --blue-l:#E6F1FB;
+  --navy:#0A2240; --navy-2:#112E52; --navy-3:#1A3B66;
+  --green:#28E289; --green-d:#13a862; --orange:#FF6B00; --orange-l:#FFF1E6;
+  --grey:#F4F4F4; --charcoal:#282922; --muted:#5E6573; --line:#E2E6ED;
+  --white:#fff;
+  --r-sm:10px; --r:16px; --r-lg:24px;
+  --shadow:0 1px 2px rgba(10,34,64,.06),0 8px 24px rgba(10,34,64,.08);
+  --shadow-lg:0 2px 4px rgba(10,34,64,.08),0 24px 60px rgba(10,34,64,.16);
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Inter,Arial,sans-serif;color:var(--charcoal);background:#fff;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Roboto Flex",Inter,Arial,sans-serif;color:var(--navy);line-height:1.12;letter-spacing:-.015em}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+strong{font-weight:700;color:var(--navy)}
+.ms{font-family:"Material Symbols Rounded";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:"liga"}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+section{padding:112px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.eyebrow::before{content:"";width:22px;height:3px;border-radius:2px;background:currentColor}
+.sec-head{max-width:760px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(32px,4.2vw,48px);font-weight:800;margin:14px 0 16px}
+.sec-head p{font-size:18px;color:var(--muted)}
+.hl{background:linear-gradient(transparent 62%,rgba(40,226,137,.45) 62%);padding:0 2px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brands{display:flex;align-items:center;gap:14px}
+.brands img{height:28px;width:auto}
+.brands .x{color:#b4bbc7;font-size:18px}
+.brand-fallback{display:none;font-family:"Roboto Flex";font-weight:800;color:var(--navy);font-size:18px}
+.nav ul{display:flex;list-style:none;gap:4px}
+.nav ul a{display:block;padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none;transition:background .2s}
+.nav ul a:hover{background:var(--grey)}
+.nav .cta{background:var(--blue);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+.nav .cta:hover{background:var(--blue-d)}
+
+/* HERO */
+.hero{position:relative;background:var(--navy);color:#fff;padding:88px 0 96px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 85% -10%,rgba(0,114,206,.55),transparent 60%),radial-gradient(600px 400px at -10% 110%,rgba(40,226,137,.16),transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,#000 0%,transparent 80%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero .eyebrow{color:var(--green)}
+.hero h1{color:#fff;font-size:clamp(38px,5.2vw,64px);font-weight:800;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero .lede{font-size:19px;color:rgba(255,255,255,.82);max-width:560px}
+.hero .lede strong{color:#fff}
+.hero .lede{margin-bottom:32px}
+.hero-points{list-style:none;margin:64px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hero-points li{padding:22px 22px 22px 20px;border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--green);line-height:1.5}
+.hero-points li{display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.9);font-size:16px}
+.hero-points .ms{color:var(--green);font-size:22px;margin-top:1px}
+.hero-points strong{color:var(--green)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--green);color:var(--navy)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.video-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.video-frame{position:relative;width:100%;aspect-ratio:16/11;border-radius:14px;overflow:hidden;background:#06162b}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 6px 4px;font-size:14px;color:rgba(255,255,255,.75)}
+.video-meta b{color:#fff;font-weight:600}
+.chapters{margin-top:10px;border-top:1px solid rgba(255,255,255,.12)}
+.chapters summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:12px 6px;font-size:14px;font-weight:600;color:#fff}
+.chapters summary::-webkit-details-marker{display:none}
+.chapters summary .ms{transition:transform .2s;font-size:20px}
+.chapters[open] summary .ms{transform:rotate(180deg)}
+.chapters ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;padding:0 6px 8px;max-height:220px;overflow:auto}
+.chapters li{display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,.78);padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.chapters time{font-variant-numeric:tabular-nums;color:var(--green);font-weight:600;min-width:46px}
+.stats{margin-top:64px;padding-bottom:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{position:relative;padding:24px 24px 22px;border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.16);overflow:hidden}
+.stat::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green)}
+.stat .si{width:40px;height:40px;border-radius:12px;background:rgba(40,226,137,.16);display:grid;place-items:center;margin-bottom:14px}
+.stat .si .ms{color:var(--green);font-size:22px}
+.stat .n{font-family:"Roboto Flex";font-weight:800;font-size:clamp(40px,4.4vw,56px);color:#fff;letter-spacing:-.03em;line-height:1}
+.stat .u{display:block;font-family:"Roboto Flex";font-weight:700;font-size:15px;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-top:8px}
+.stat .l{font-size:14px;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.4}
+
+/* TODAY VS BIGCHANGE */
+.fix{background:var(--grey)}
+.fix{padding:88px 0}
+.fix .sec-head{margin-bottom:32px}
+.fix-table{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+.fix-head,.fix-row{display:grid;grid-template-columns:1fr 36px 1.2fr}
+.fix-head{background:var(--navy);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.fix-head span{padding:12px 20px}
+.fix-head .t{color:#ffb27a} .fix-head .b{color:var(--green)}
+.fix-row{border-top:1px solid var(--line);transition:background .2s}
+.fix-row:hover{background:#fafbfc}
+.fix-today,.fix-bc{padding:14px 20px}
+.fix-today{border-left:4px solid var(--orange)}
+.fix-row h3{font-size:15.5px;font-weight:700;margin-bottom:2px;display:flex;align-items:center;gap:7px}
+.fix-today h3 .ms{color:var(--orange);font-size:18px}
+.fix-bc h3 .ms{color:var(--blue);font-size:18px}
+.fix-row p{font-size:14px;color:var(--muted);line-height:1.5}
+.fix-arrow{display:grid;place-items:center}
+.fix-arrow .ms{color:var(--blue);font-size:22px}
+.fix-bc{background:var(--blue-l)}
+.fix-bc h3{justify-content:space-between;flex-wrap:wrap}
+.fix-bc h3 > span:first-child{display:flex;align-items:center;gap:7px}
+.pill{display:inline-flex;align-items:center;gap:4px;background:var(--navy);color:#fff;border-radius:999px;padding:3px 10px 3px 7px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.pill .ms{font-size:14px !important;color:var(--green) !important}
+
+/* QUOTE BAND */
+.quote-band{background:#fff;padding:96px 0}
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.q{position:relative;border-radius:var(--r-lg);padding:40px 40px 34px;background:var(--navy);color:#fff;overflow:hidden}
+.q.alt{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.q::before{content:"\201C";position:absolute;top:-28px;right:22px;font-family:Georgia,serif;font-size:200px;line-height:1;color:rgba(40,226,137,.18)}
+.q.alt::before{color:rgba(0,114,206,.1)}
+.q p{font-family:"Roboto Flex";font-size:clamp(20px,2.2vw,26px);font-weight:600;line-height:1.35;position:relative}
+.q .who{margin-top:22px;font-size:14px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:10px}
+.q.alt .who{color:var(--muted)}
+.q .who b{color:var(--green)} .q.alt .who b{color:var(--blue)}
+.q .ans{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:15px;color:rgba(255,255,255,.85)}
+.q.alt .ans{border-top-color:var(--line);color:var(--muted)}
+
+/* STEPPER */
+.flow{background:var(--grey)}
+.stepper{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:26px;position:relative}
+.step-btn{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:16px 16px 14px;border-radius:var(--r);background:var(--grey);border:1.5px solid transparent;transition:all .2s;position:relative}
+.step-btn:hover{background:#ebedf1}
+.step-btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.step-btn .num{font-family:"Roboto Flex";font-weight:800;font-size:13px;color:var(--blue)}
+.step-btn .ttl{font-weight:700;color:var(--navy);font-size:15px;line-height:1.25}
+.step-btn .own{font-size:12px;color:var(--muted)}
+.step-btn[aria-selected="true"]{background:var(--navy);border-color:var(--navy)}
+.step-btn[aria-selected="true"] .ttl{color:#fff} .step-btn[aria-selected="true"] .num{color:var(--green)} .step-btn[aria-selected="true"] .own{color:rgba(255,255,255,.7)}
+.step-btn .bar{position:absolute;left:16px;right:16px;bottom:0;height:3px;border-radius:3px;background:transparent}
+.step-btn[aria-selected="true"] .bar{background:var(--green)}
+.step-panel{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,var(--grey),#fff);border:1px solid var(--line);border-radius:var(--r-lg);padding:44px}
+.step-panel .who-chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:6px 12px 6px 6px;border-radius:999px;font-size:13px;font-weight:600;color:var(--navy)}
+.who-chip .av{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center}.who-chip .av .ms{font-size:16px}
+.step-panel h3{font-size:30px;font-weight:800;margin:16px 0 14px}
+.step-panel ul{list-style:none;display:grid;gap:12px}
+.step-panel li{display:flex;gap:12px;font-size:16px;color:var(--charcoal)}
+.step-panel li .ms{color:var(--green-d);font-size:21px;flex-shrink:0;margin-top:1px}
+.step-nav{display:flex;gap:10px;margin-top:26px}
+.step-nav button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--blue);padding:8px 14px;border-radius:999px;border:1.5px solid var(--blue-l)}
+.step-nav button:hover{background:var(--blue-l)}
+.step-nav button[disabled]{opacity:.35;pointer-events:none}
+.screen{background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line)}
+.screen-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--navy);color:#fff;font-size:13px;font-weight:600}
+.screen-top .dots{display:flex;gap:5px}.screen-top .dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);display:block}
+.screen-body{padding:16px;display:grid;gap:8px}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;background:var(--grey);font-size:13.5px}
+.srow .k{color:var(--muted)} .srow .v{font-weight:600;color:var(--navy);text-align:right}
+.srow.ok{background:#E8FBF2} .srow.ok .v{color:var(--green-d)}
+.srow.warn{background:var(--orange-l)} .srow.warn .v{color:var(--orange)}
+.srow.lane{justify-content:flex-start}
+.lane .tag{font-weight:700;color:var(--navy);min-width:64px}
+.lane .blk{height:22px;border-radius:6px;background:var(--blue);opacity:.85}
+.lane .blk.g{background:var(--green)} .lane .blk.n{background:var(--navy)}
+.illus{font-size:11.5px;color:var(--muted);text-align:center;padding:0 16px 12px}
+
+/* HUB — platform features (house style) */
+.hub-sec{background:#fff}
+.features-layout{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
+#feature-display{background:var(--grey);border-radius:var(--r-lg);padding:40px;min-height:340px;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}
+#feature-display-content{transition:opacity .35s ease}
+.fd-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-d);background:#E8FBF2;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.fd-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.fd-head .ms{font-size:40px;color:var(--blue)}
+.fd-head h3{font-size:24px;font-weight:800}
+.fd-desc{font-size:15.5px;color:var(--charcoal)}
+.fd-you{display:flex;align-items:flex-start;gap:8px;margin-top:18px;background:#f0fdf6;border:1px solid #b9f3d6;border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--navy);font-weight:600}
+.fd-you .ms{font-size:18px;color:var(--green-d);flex-shrink:0;margin-top:2px}
+.platform-hub-container{position:relative;width:100%;max-width:620px;aspect-ratio:1/1;margin:auto}
+.hub-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:132px;height:132px;background:var(--navy);border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:10;animation:hub-pulse 2s infinite;padding:12px}
+.hub-center img{max-width:96px;height:auto}
+.hub-center .hc-fallback{display:none;color:#fff;font-family:"Roboto Flex";font-weight:800;font-size:18px}
+@keyframes hub-pulse{0%{box-shadow:0 0 0 0 rgba(0,114,206,.7)}70%{box-shadow:0 0 0 20px rgba(0,114,206,0)}100%{box-shadow:0 0 0 0 rgba(0,114,206,0)}}
+.hub-node{position:absolute;width:86px;height:86px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#fff;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,.1);cursor:pointer;transition:transform .3s ease,box-shadow .3s ease,border .3s ease;z-index:5;padding:8px;border:3px solid transparent}
+.hub-node.active,.hub-node:hover{transform:scale(1.1) translateY(-5px);box-shadow:0 10px 25px rgba(0,114,206,.3);border-color:var(--blue);z-index:20}
+.hub-node .ms{font-size:26px;color:var(--blue)}
+.hub-node .feature-name{font-size:9px;font-weight:600;margin-top:4px;color:var(--navy);line-height:1.2}
+.hub-line{position:absolute;background:#d1d5db;height:2px;transform-origin:left center;z-index:1}
+.feature-tile-grid{display:none}
+@media (max-width:900px){
+  .features-layout{grid-template-columns:1fr}
+  .platform-hub-container{display:none}
+  .feature-tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
+  .feature-tile{background:#fff;border:2px solid #e5e7eb;border-radius:10px;padding:.7rem .4rem;text-align:center;cursor:pointer;transition:all .25s;font-family:inherit}
+  .feature-tile .ms{font-size:24px;color:var(--blue)}
+  .feature-tile .feature-name{display:block;font-size:.68rem;font-weight:600;color:var(--navy);margin-top:4px;line-height:1.2}
+  .feature-tile.active{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,114,206,.2)}
+}
+
+/* ROLLOUT / ADOPTION */
+.adopt{background:#fff}
+.adopt-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:36px;box-shadow:var(--shadow)}
+.card h3{font-size:24px;font-weight:800;margin-bottom:8px}
+.card > p{color:var(--muted);margin-bottom:22px}
+.ticks{list-style:none;display:grid;gap:16px}
+.ticks li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.ticks .ib{width:40px;height:40px;border-radius:12px;background:var(--blue-l);display:grid;place-items:center}
+.ticks .ib .ms{color:var(--blue);font-size:22px}
+.ticks b{display:block;color:var(--navy);font-size:16px;margin-bottom:2px}
+.ticks span{font-size:15px;color:var(--muted)}
+.phases{display:grid;gap:0;position:relative}
+.phase{display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:24px;position:relative}
+.phase:not(:last-child)::before{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.phase .dot{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--green);display:grid;place-items:center;font-family:"Roboto Flex";font-weight:800;font-size:15px}
+.phase b{display:block;color:var(--navy);font-size:16px}
+.phase span{font-size:15px;color:var(--muted)}
+.callout{margin-top:26px;display:flex;gap:14px;align-items:flex-start;background:var(--orange-l);border-radius:var(--r);padding:18px 20px;font-size:15px;color:var(--charcoal)}
+.callout .ms{color:var(--orange)}
+
+/* SPLIT BAND */
+.split{background:var(--grey)}
+.split-box{display:grid;grid-template-columns:1.05fr 1fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.split-l{background:var(--navy);color:#fff;padding:52px}
+.split-l .eyebrow{color:var(--green)}
+.split-l h2{color:#fff;font-size:clamp(28px,3.4vw,40px);font-weight:800;margin:14px 0 16px}
+.split-l p{color:rgba(255,255,255,.8);font-size:17px}
+.split-l .date{margin-top:28px;display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:14px 18px}
+.split-l .date .ms{color:var(--green);font-size:28px}
+.split-l .date b{color:#fff;display:block;font-size:16px}
+.split-l .date span{font-size:13px;color:rgba(255,255,255,.7)}
+.split-r{background:#fff;padding:52px}
+.split-r .ticks{gap:20px}
+
+/* CASE STUDIES */
+.cases{background:#fff}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.case:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.case-photo{position:relative;height:190px;background:var(--navy) center/cover no-repeat}
+.case-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,34,64,0) 45%,rgba(10,34,64,.55))}
+.case-logo{position:absolute;left:20px;bottom:-26px;z-index:2;height:58px;min-width:58px;max-width:170px;padding:8px 12px;border-radius:14px;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center}
+.case-logo img{max-height:40px;max-width:146px;object-fit:contain}
+.case-logo .wm{display:none;font-family:"Roboto Flex";font-weight:800;font-size:14px;color:var(--navy);line-height:1.1;text-align:center}
+.case-top{padding:40px 26px 20px;border-bottom:1px solid var(--line)}
+.case-link{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:14px;color:var(--orange);text-decoration:none}
+.case-link:hover{text-decoration:underline}
+.logo-slot{height:52px;display:flex;align-items:center;margin-bottom:16px}
+.logo-slot img{max-height:44px;max-width:160px;object-fit:contain}
+.mono{display:none;width:52px;height:52px;border-radius:14px;background:var(--navy);color:#fff;place-items:center;font-family:"Roboto Flex";font-weight:800;font-size:18px}
+.case .sector{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.case h3{font-size:22px;font-weight:800;margin:6px 0 8px}
+.case .why{font-size:14.5px;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.metric{background:var(--grey);padding:18px 22px}
+.metric .n{font-family:"Roboto Flex";font-weight:800;font-size:28px;color:var(--blue);letter-spacing:-.02em}
+.metric .l{font-size:12.5px;color:var(--muted);line-height:1.35}
+.case-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
+.case-body ul{list-style:none;display:grid;gap:8px}
+.case-body li{display:flex;gap:10px;font-size:14.5px}
+.case-body li .ms{font-size:18px;color:var(--green-d);margin-top:2px}
+.case blockquote{margin-top:auto;padding:14px 16px;border-radius:12px;background:var(--blue-l);font-size:14.5px;font-style:italic;color:var(--navy)}
+.case blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:6px}
+.case .src{font-size:12.5px}
+.ref-note{margin-top:28px;display:flex;gap:14px;align-items:center;justify-content:center;font-size:15px;color:var(--muted);text-align:center}
+.ref-note .ms{color:var(--blue)}
+
+/* NEXT STEPS */
+.next{background:var(--navy);color:#fff}
+.next .sec-head h2{color:#fff}.next .sec-head p{color:rgba(255,255,255,.72)}.next .eyebrow{color:var(--green)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.timeline::before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--green),rgba(255,255,255,.15))}
+.tl{position:relative;z-index:1}
+.tl .dot{width:56px;height:56px;border-radius:50%;background:var(--navy-2);border:2px solid rgba(255,255,255,.2);display:grid;place-items:center;margin-bottom:18px}
+.tl .dot .ms{color:#cfe4f7}
+.tl.done .dot{background:var(--green);border-color:var(--green)}.tl.done .dot .ms{color:var(--navy)}
+.tl.key .dot{background:var(--blue);border-color:#5fb1f0;box-shadow:0 0 0 8px rgba(0,114,206,.25)}.tl.key .dot .ms{color:#fff}
+.tl .when{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.tl h3{color:#fff;font-size:19px;margin:6px 0 8px}
+.tl p{font-size:14.5px;color:rgba(255,255,255,.72)}
+.contacts{margin-top:64px;display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:18px}
+.contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:22px;display:flex;gap:14px;align-items:center}
+.contact .av{width:48px;height:48px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:700;font-family:"Roboto Flex";flex-shrink:0}
+.contact b{display:block;color:#fff}.contact span{font-size:14px;color:rgba(255,255,255,.7)}
+.contact.hq .av{background:var(--green);color:var(--navy)}
+footer{background:#06162b;color:rgba(255,255,255,.55);font-size:13px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* REVEAL */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .case-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  section{padding:80px 0}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-points{grid-template-columns:1fr;margin-top:40px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+  .fix-head{display:none}
+  .fix-row{grid-template-columns:1fr}
+  .fix-arrow{padding:2px 0;background:var(--blue-l)}
+  .fix-arrow .ms{transform:rotate(90deg)}
+  .quote-grid,.adopt-grid,.split-box{grid-template-columns:1fr}
+  .stepper{grid-template-columns:repeat(3,1fr)}
+  .step-panel{grid-template-columns:1fr;padding:28px}
+  .timeline{grid-template-columns:1fr 1fr;gap:32px}
+  .timeline::before{display:none}
+  .contacts{grid-template-columns:1fr}
+  .split-l,.split-r{padding:36px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 18px}
+  .case-grid{grid-template-columns:1fr}
+  .stepper{grid-template-columns:1fr 1fr}
+  .chapters ol{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr}
+  .q{padding:30px 26px}
+  .card{padding:26px}
+  .nav .cta{display:none}
+}
+
+/* ===== AIRWAVE ADDITIONS ===== */
+.quote-band{padding:0 0 88px;background:var(--grey)}
+.quote-band .quote-grid{gap:16px}
+.quote-band .q{padding:20px 24px;border-radius:var(--r);display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start}
+.quote-band .q::before{position:static;content:"\201C";font-size:56px;line-height:.8;grid-row:span 2}
+.quote-band .q p{font-size:16.5px;line-height:1.4}
+.quote-band .q .who{margin-top:0;font-size:12.5px}
+.quote-band .q .ans{display:none}
+.step-panel > *,.features-layout > *,.stepper > *,.price-grid > *,.hero-grid > *,.split-box > *{min-width:0}
+.srow .v{overflow-wrap:anywhere}
+.brands img.aw{height:30px}
+
+/* Hook callout under hero lede */
+.hook-note{display:flex;gap:12px;align-items:flex-start;margin:0 0 30px;max-width:560px;padding:14px 18px;border-radius:var(--r);background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.35);font-size:15px;color:rgba(255,255,255,.88)}
+.hook-note .ms{color:#ffb27a;font-size:22px;flex-shrink:0}
+.hook-note b{color:#fff}
+
+/* Parts callout box inside split band */
+.mini-q{margin-top:26px;padding:16px 18px;border-left:4px solid var(--green);background:rgba(255,255,255,.06);border-radius:0 var(--r-sm) var(--r-sm) 0;font-family:"Roboto Flex";font-weight:600;font-size:17px;line-height:1.4;color:#fff}
+.mini-q cite{display:block;margin-top:8px;font-family:Inter;font-style:normal;font-weight:500;font-size:13px;color:rgba(255,255,255,.65)}
+
+/* Case photo fallback (no published image) */
+
+/* PRICING */
+.pricing{background:var(--grey)}
+.price-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:start}
+.qcard{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line)}
+.qcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:28px 32px;background:var(--navy);color:#fff}
+.qcard-top .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.qcard-top h3{color:#fff;font-size:24px;font-weight:800;margin-top:6px}
+.qcard-top .meta{text-align:right;font-size:13px;color:rgba(255,255,255,.72);line-height:1.6}
+.qcard-top .meta b{color:#fff}
+.qtable{width:100%;border-collapse:collapse;font-size:15px}
+.qtable th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:14px 32px 10px;border-bottom:1px solid var(--line)}
+.qtable th.r,.qtable td.r{text-align:right}
+.qtable td{padding:16px 32px;border-bottom:1px solid var(--line);vertical-align:top}
+.qtable td b{display:block;color:var(--navy);font-weight:700}
+.qtable td small{display:block;font-size:13px;color:var(--muted);margin-top:2px;line-height:1.4}
+.qtable .was{display:block;font-size:12.5px;color:var(--muted);text-decoration:line-through}
+.qtable .now{font-family:"Roboto Flex";font-weight:800;color:var(--navy);font-size:17px}
+.qtable .inc{display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--green-d);font-size:14px}
+.qtable .inc .ms{font-size:17px}
+.qtotal{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 32px;background:var(--blue-l)}
+.qtotal .t{font-weight:700;color:var(--navy)}
+.qtotal .t small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
+.qtotal .sum{text-align:right}
+.qtotal .sum .was{font-size:14px;color:var(--muted);text-decoration:line-through;display:block}
+.qtotal .sum .big{font-family:"Roboto Flex";font-weight:800;font-size:40px;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.qtotal .sum .per{font-size:14px;color:var(--muted);font-weight:600}
+.qfoot{padding:18px 32px 24px;font-size:13px;color:var(--muted);display:grid;gap:6px}
+.qfoot div{display:flex;gap:8px}
+.qfoot .ms{font-size:16px;color:var(--blue);margin-top:2px}
+.roi-stack{display:grid;gap:18px}
+.roi{border-radius:var(--r-lg);padding:28px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.roi.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.roi .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.roi.dark .k{color:var(--green)}
+.roi .n{font-family:"Roboto Flex";font-weight:800;font-size:44px;line-height:1;letter-spacing:-.03em;color:var(--navy);margin:10px 0 8px}
+.roi.dark .n{color:#fff}
+.roi p{font-size:15px;color:var(--muted)}
+.roi.dark p{color:rgba(255,255,255,.78)}
+.roi.dark p strong{color:var(--green)}
+.roi .tiny{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.roi.dark .tiny{color:rgba(255,255,255,.55)}
+.qtable td.r small{white-space:nowrap}
+.qtable tr.free td{background:#F3FCF8}
+.tag-free{display:inline-block;margin-top:2px;background:var(--green);color:var(--navy);font-family:"Roboto Flex";font-weight:800;font-size:14px;padding:3px 12px;border-radius:999px;letter-spacing:.02em}
+.qtotal .save{display:inline-block;margin-top:8px;background:var(--navy);color:var(--green);font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
+.grow{display:flex;gap:12px;align-items:flex-start;padding:18px 20px;border-radius:var(--r);background:#E8FBF2;border:1px solid #b9f3d6;font-size:14.5px;color:var(--navy)}
+.grow .ms{color:var(--green-d)}
+
+@media (max-width:900px){
+  .price-grid{grid-template-columns:1fr}
+  .qcard-top{flex-direction:column}
+  .qcard-top .meta{text-align:left}
+  .qtable th,.qtable td{padding-left:20px;padding-right:20px}
+  .qtotal,.qfoot{padding-left:20px;padding-right:20px}
+}
+@media (max-width:600px){
+  #feature-display{padding:24px;min-height:0}
+  .step-panel{padding:22px}
+  .step-btn{min-width:0}
+  .qtable th:nth-child(2),.qtable td:nth-child(2){display:none}
+  .qtotal{flex-direction:column;align-items:flex-start}
+  .qtotal .sum{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="brands">
+      <img class="aw" src="https://www.airwavecompressors.co.uk/wp-content/uploads/2023/12/Logo-Black.png" alt="Airwave Compressors logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="brand-fallback">Airwave</span>
+      <span class="x">×</span>
+      <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/67ab22b71528288604bc325e_BigChange-Horz_RGB_EnergyBlue.svg" alt="BigChange logo">
+    </div>
+    <ul>
+      <li><a href="#fix">The fix</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#flow">Quote to paid</a></li>
+      <li><a href="#quote">Quotation</a></li>
+    </ul>
+    <a class="cta" href="#next">Next steps</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>£4,000 of work done. <em>Never invoiced.</em></h1>
+        <p class="lede">That’s what turned up when you went through the old paperwork. Jobs live on <strong>WhatsApp, whiteboards, Word docs and email</strong> — so parts, return visits and invoices slip through the gaps. BigChange puts every job in one calendar and every part on the invoice.</p>
+        <div class="hook-note"><span class="ms">payments</span><span><b>Recover that £4k once and it covers a full year of BigChange.</b> The rest is time back for you and Lindsay.</span></div>
+        <div class="btns">
+          <a class="btn btn-primary" href="#fix"><span class="ms">arrow_downward</span>See the fix</a>
+          <a class="btn btn-ghost" href="#quote">Indicative quotation</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://copilot.clari.com/guest/sharedCall/6ac7ab990118a249f21c6044?callId=0f7a6afc-44be-4fae-910a-4df3028195d1&amp;callTitle=Airwave%20Compressors%20x%20BigChange%20%7C%20Demonstration" title="Airwave Compressors × BigChange demonstration" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+        </div>
+        <div class="video-meta"><span><b>Your demo recording</b> · share it with Lindsay</span><span>~60 min</span></div>
+        <details class="chapters">
+          <summary>Jump to a section <span class="ms">expand_more</span></summary>
+          <ol>
+            <li><time>00:00</time>How Airwave runs today</li>
+            <li><time>02:37</time>RAM tracking &amp; Sage</li>
+            <li><time>05:58</time>The dashboard</li>
+            <li><time>07:30</time>CRM — customers &amp; sites</li>
+            <li><time>09:57</time>Customer booking portal</li>
+            <li><time>14:10</time>The calendar view</li>
+            <li><time>16:57</time>Parts &amp; price lists</li>
+            <li><time>19:55</time>Map &amp; route planning</li>
+            <li><time>22:00</time>Monthly service planning</li>
+            <li><time>24:06</time>Worked example: quote to job</li>
+            <li><time>29:42</time>Scheduling assistant</li>
+            <li><time>31:28</time>Engineer app &amp; van checks</li>
+            <li><time>34:53</time>Risk assessments &amp; worksheets</li>
+            <li><time>39:22</time>Adding parts on site</li>
+            <li><time>41:18</time>Invoicing &amp; Sage</li>
+            <li><time>44:02</time>Return visits</li>
+            <li><time>49:02</time>Importing stock &amp; customers</li>
+            <li><time>51:28</time>Pricing &amp; next steps</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+    <ul class="hero-points">
+      <li><span class="ms">calendar_month</span><span><strong>One calendar for every job</strong> — services, installs and call-outs, sent straight to the lads’ phones.</span></li>
+      <li><span class="ms">build</span><span><strong>Parts used on site hit the invoice</strong> — no more Lindsay reading worksheets to work out what changed.</span></li>
+      <li><span class="ms">pending_actions</span><span><strong>Nothing outstanding goes missing</strong> — return visits, unpaid invoices and open quotes in one list.</span></li>
+    </ul>
+  </div>
+</header>
+
+<!-- TODAY VS BIGCHANGE -->
+<section class="fix" id="fix">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where the money leaks</span>
+      <h2>Five gaps. <span class="hl">Five fixes.</span></h2>
+      <p>Straight from what you told us on the call. Simple to use, nothing over-complicated.</p>
+    </div>
+
+    <div class="fix-table reveal">
+      <div class="fix-head"><span class="t">Today at Airwave</span><span></span><span class="b">With BigChange</span></div>
+      <div class="fix-row">
+        <div class="fix-today"><h3><span class="ms">chat</span>Jobs everywhere</h3><p>Email, WhatsApp, whiteboards, bits of paper. Call-outs land on your mobile, then get WhatsApped on.</p></div>
+        <div class="fix-arrow"><span class="ms">arrow_forward</span></div>
+        <div class="fix-bc"><h3><span><span class="ms">calendar_month</span>One calendar, drag &amp; drop</span><span class="pill"><span class="ms">check</span>Day · week · month</span></h3><p>Every job in one view. Drop it in a diary and it’s on the engineer’s phone instantly.</p></div>
+      </div>
+      <div class="fix-row">
+        <div class="fix-today"><h3><span class="ms">edit_document</span>Word sheet + Adobe Fill &amp; Sign</h3><p>An old worksheet sent to the lads’ phones. Awkward to fill in, worse to write on.</p></div>
+        <div class="fix-arrow"><span class="ms">arrow_forward</span></div>
+        <div class="fix-bc"><h3><span><span class="ms">smartphone</span>Questions, not PDFs</span><span class="pill"><span class="ms">check</span>Your template</span></h3><p>Engineers answer simple questions on the app. Answers, photos and signatures fill your report.</p></div>
+      </div>
+      <div class="fix-row">
+        <div class="fix-today"><h3><span class="ms">build</span>Parts added on the fly</h3><p>Lindsay reads each signed sheet to spot extra parts, then fills it all out and invoices later.</p></div>
+        <div class="fix-arrow"><span class="ms">arrow_forward</span></div>
+        <div class="fix-bc"><h3><span><span class="ms">add_shopping_cart</span>Parts logged on site</span><span class="pill"><span class="ms">check</span>On the invoice</span></h3><p>Filters, oil, anything off the van — picked from your price list and added to the job’s finances.</p></div>
+      </div>
+      <div class="fix-row">
+        <div class="fix-today"><h3><span class="ms">print</span>Service lists printed monthly</h3><p>PDFs all over the place. You work down the list a week ahead and ring round.</p></div>
+        <div class="fix-arrow"><span class="ms">arrow_forward</span></div>
+        <div class="fix-bc"><h3><span><span class="ms">event_repeat</span>Services that book themselves</span><span class="pill"><span class="ms">check</span>Monthly · biannual</span></h3><p>Set the recurrence once. Next week’s services surface in a “service pot”, ready to drop in.</p></div>
+      </div>
+      <div class="fix-row">
+        <div class="fix-today"><h3><span class="ms">help</span>No idea what’s outstanding</h3><p>Return visits, missing parts and uninvoiced work hide in the paperwork. £4k of it, last time you looked.</p></div>
+        <div class="fix-arrow"><span class="ms">arrow_forward</span></div>
+        <div class="fix-bc"><h3><span><span class="ms">filter_list</span>One click, one list</span><span class="pill"><span class="ms">check</span>Nothing lost</span></h3><p>Return visits due, invoices unpaid, quotes not accepted — filtered lists you can chase from.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <div class="wrap">
+    <div class="quote-grid">
+      <div class="q reveal">
+        <p>“Everything’s done by random email addresses, WhatsApp, whiteboards, bits of paper, carrier pigeons, you name it.”</p>
+        <div class="who"><b>Airwave Compressors</b> · on the call</div>
+        <div class="ans">One calendar. Every job folder — notes, attachments, photos, reports — one click away.</div>
+      </div>
+      <div class="q alt reveal">
+        <p>“I have no idea how much money is just being lost by not invoicing it out.”</p>
+        <div class="who"><b>Airwave Compressors</b> · on the call</div>
+        <div class="ans">Completed jobs feed straight into invoicing. Anything not billed shows up in a list — not a box file.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Equipment servicing on BigChange</span>
+      <h2>Businesses that <span class="hl">ditched the paper job sheet</span></h2>
+      <p>Engineers servicing and repairing machinery, chasing parts and getting invoices out faster.</p>
+    </div>
+    <div class="case-grid">
+      <article class="case reveal">
+        <div class="case-photo" style="background-image:url('https://ficepgroup.com/ficep-uk/wp-content/uploads/sites/11/2023/11/l-kronos_v2.jpg')">
+          <div class="case-logo"><img src="https://ficepgroup.com/ficep-uk/wp-content/themes/tema-filiale/img/logo.svg" alt="Ficep UK Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="wm">Ficep UK</span></div>
+        </div>
+        <div class="case-top">
+          <div class="sector">Machinery install &amp; servicing</div>
+          <h3>Ficep UK</h3>
+          <p class="why">Engineers maintaining industrial machines — every model needing different parts.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="n">24 hrs</div><div class="l">to quote, down from 2–3 weeks</div></div>
+          <div class="metric"><div class="n">~20 hrs</div><div class="l">admin saved every week</div></div>
+        </div>
+        <div class="case-body">
+          <ul>
+            <li><span class="ms">check_circle</span>Service sheets built per machine, showing the right parts and past history</li>
+            <li><span class="ms">check_circle</span>Customer signs on site, invoice goes out almost straight away</li>
+            <li><span class="ms">check_circle</span>Invoice queries all but disappeared</li>
+          </ul>
+          <blockquote>“It really helps them do a first class job every time.”<cite>Richard Clark, UK Service Manager</cite></blockquote>
+          <a class="case-link" href="https://www.pesmedia.com/ficep-bigchange-mobile-technology-real-time-management-230120" target="_blank" rel="noopener">Read the story <span class="ms" style="font-size:18px">arrow_forward</span></a>
+        </div>
+      </article>
+      <article class="case reveal">
+        <div class="case-photo" style="background-image:url('https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67da9d4b6d37cdd4f62de7e6_Brendeck.jpeg')">
+          <div class="case-logo"><img src="https://publicprocurementonline.com/wp-content/uploads/2018/09/logo-7.jpg" alt="Brendeck Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="wm">Brendeck</span></div>
+        </div>
+        <div class="case-top">
+          <div class="sector">Equipment supply &amp; servicing · 14 engineers</div>
+          <h3>Brendeck</h3>
+          <p class="why">Sells, installs and services wash equipment. Was running on handwritten job sheets.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="n">Same day</div><div class="l">return visits — used to be 2 days later</div></div>
+          <div class="metric"><div class="n">0</div><div class="l">paper job sheets</div></div>
+        </div>
+        <div class="case-body">
+          <ul>
+            <li><span class="ms">check_circle</span>Job sheets back in the office the moment the visit ends</li>
+            <li><span class="ms">check_circle</span>Spare-parts quotes to customers without the delay</li>
+            <li><span class="ms">check_circle</span>Live view of every engineer on the road</li>
+          </ul>
+          <blockquote>“We have completely transformed our field service operations.”<cite>Alan Taylor, Managing Director</cite></blockquote>
+          <a class="case-link" href="https://www.bigchange.com/case-study/bigchange-helps-vehicle-wash-industry-leader-brendeck-to-go-completely-paperless" target="_blank" rel="noopener">Read the story <span class="ms" style="font-size:18px">arrow_forward</span></a>
+        </div>
+      </article>
+      <article class="case reveal">
+        <div class="case-photo" style="background-image:url('https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d3d2acb4a5aac1358e3064_nationwide%20catering%20services.webp')">
+          <div class="case-logo"><img src="https://media.licdn.com/dms/image/v2/C4E0BAQGfxLZ_D0eqBg/company-logo_200_200/company-logo_200_200/0/1658308245856/nationwide_catering_services_ltd_logo?e=2147483647&amp;v=beta&amp;t=M0R3zONieva_IZwTjDyVKMT6-ZeJsBSCr4tp8ISOSZY" alt="Nationwide Catering Services Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="wm">Nationwide Catering Services</span></div>
+        </div>
+        <div class="case-top">
+          <div class="sector">Equipment service &amp; repair · family-run since 1953</div>
+          <h3>Nationwide Catering Services</h3>
+          <p class="why">Long-established family firm servicing kit nationwide, invoicing through Sage.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="n">+70%</div><div class="l">turnover since moving to BigChange</div></div>
+          <div class="metric"><div class="n">10 yrs</div><div class="l">running the business on BigChange</div></div>
+        </div>
+        <div class="case-body">
+          <ul>
+            <li><span class="ms">check_circle</span>Sage integration — invoices faster and more accurate</li>
+            <li><span class="ms">check_circle</span>Weekly vehicle checks flag van issues early</li>
+            <li><span class="ms">check_circle</span>Whole mobile operation managed in one place</li>
+          </ul>
+          <blockquote>“BigChange brought together all aspects of managing a complex mobile operation.”<cite>Simon Atkinson, Managing Director</cite></blockquote>
+          <a class="case-link" href="https://www.bigchange.com/case-study/nationwide-catering-services-celebrates-massive-milestone-with-bigchange" target="_blank" rel="noopener">Read the story <span class="ms" style="font-size:18px">arrow_forward</span></a>
+        </div>
+      </article>
+    </div>
+    <p class="ref-note"><span class="ms">call</span>Want to speak to a service business like yours? We’ll line up a reference call.</p>
+  </div>
+</section>
+
+<!-- HUB -->
+<section class="hub-sec" id="platform">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">One platform, everything connected</span>
+      <h2>Everything Airwave runs, in one place</h2>
+      <p>Click any feature to see what it means for your engineers, your office and your customers.</p>
+    </div>
+    <div class="features-layout">
+      <div id="feature-display"><div id="feature-display-content"></div></div>
+      <div>
+        <div id="platform-hub" class="platform-hub-container">
+          <div class="hub-center"><img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="hc-fallback">BigChange</span></div>
+        </div>
+        <div id="feature-tile-grid" class="feature-tile-grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW STEPPER -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">One job, start to finish</span>
+      <h2>Your workflow: <span class="hl">quote to paid</span></h2>
+      <p>A biannual compressor service, the way you described it on the call. Click through each step.</p>
+    </div>
+    <div class="stepper" role="tablist" aria-label="Job workflow" id="stepper"></div>
+    <div class="step-panel" id="stepPanel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- PARTS & DATA -->
+<section class="split" id="parts">
+  <div class="wrap">
+    <div class="split-box reveal">
+      <div class="split-l">
+        <span class="eyebrow">Your biggest worry</span>
+        <h2>Getting the parts and prices in. We do the heavy lifting.</h2>
+        <p>Your dad’s old price file, different brands, genuine vs alternative parts — it’s a minefield. But it only has to go in once. Then it’s there for every quote, job and invoice.</p>
+        <div class="mini-q">“How much effort’s going to be involved in getting all that stuff written down.”<cite>Airwave Compressors · on the call</cite></div>
+      </div>
+      <div class="split-r">
+        <ul class="ticks">
+          <li><span class="ib"><span class="ms">upload_file</span></span><div><b>Bulk import, not one by one</b><span>Customers, sites and stock exported from Sage or Excel, imported by CSV.</span></div></li>
+          <li><span class="ib"><span class="ms">sell</span></span><div><b>Supplier price lists, loaded in</b><span>Import a price book whenever it changes. No live feed — your costs, your control.</span></div></li>
+          <li><span class="ib"><span class="ms">inventory_2</span></span><div><b>Stock or bought-in</b><span>Track what’s in the warehouse and on the vans, or add bought-in parts as priced line items.</span></div></li>
+          <li><span class="ib"><span class="ms">receipt_long</span></span><div><b>POs against the job</b><span>Raise purchase orders in BigChange. When parts arrive, it’s all in the job folder.</span></div></li>
+          <li><span class="ib"><span class="ms">support_agent</span></span><div><b>Managed onboarding</b><span>3,000+ businesses moved over. Expect around 8 weeks to be running comfortably.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTATION -->
+<section class="pricing" id="quote">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Indicative quotation</span>
+      <h2><span class="hl">Here’s where we start.</span></h2>
+      <p>Back office and field licences for the team today. A formal quotation follows once you’ve spoken to Lindsay.</p>
+    </div>
+    <div class="price-grid">
+      <div class="qcard reveal">
+        <div class="qcard-top">
+          <div><span class="lbl">Indicative quotation</span><h3>Airwave Compressors</h3></div>
+          <div class="meta"><b>36-month agreement</b><br>Prepared October 2026<br>Prices exclude VAT</div>
+        </div>
+        <table class="qtable">
+          <thead><tr><th>Item</th><th class="r">Qty</th><th class="r">Monthly</th></tr></thead>
+          <tbody>
+            <tr><td><b>Back office licence</b><small>Neil and Lindsay. Calendar, CRM, quoting, invoicing, reporting.</small></td><td class="r">2</td><td class="r"><span class="was">£160.00</span><span class="now">£100.00</span><small>£50 / user (list £80)</small></td></tr>
+            <tr><td><b>Field licence</b><small>Your two engineers. Engineer app, worksheets, van checks, tracking.</small></td><td class="r">2</td><td class="r"><span class="was">£160.00</span><span class="now">£100.00</span><small>£50 / user (list £80)</small></td></tr>
+            <tr class="free"><td><b>Field licence — Neil</b><small>The app for when you’re out on site.</small></td><td class="r">1</td><td class="r"><span class="was">£80.00</span><span class="tag-free">Free</span></td></tr>
+            <tr><td><b>Premier onboarding package</b><small>Managed set-up, data import (customers, sites, stock, price lists), worksheet build, training.</small></td><td class="r">1</td><td class="r"><span class="now">£133.00</span><small>over 36 months</small></td></tr>
+            <tr class="free"><td><b>Sage 50 integration</b><small>Invoices sync to Sage 50, paid status flows back.</small></td><td class="r">1</td><td class="r"><span class="was">£125.00</span><span class="tag-free">Waived</span></td></tr>
+            <tr><td><b>Vehicle tracking</b><small>Live map, journey costs, driver behaviour alerts.</small></td><td class="r">—</td><td class="r"><span class="inc"><span class="ms">check</span>Included</span></td></tr>
+            <tr><td><b>24/7 UK support</b><small>Phone, email and live chat from our Leeds team, for the office and the lads.</small></td><td class="r">—</td><td class="r"><span class="inc"><span class="ms">check</span>Included</span></td></tr>
+          </tbody>
+        </table>
+        <div class="qtotal">
+          <div class="t">Indicative monthly total<small>5 licences · Sage 50, tracking &amp; support included</small><span class="save">You save £325 / month</span></div>
+          <div class="sum"><span class="was">£658.00</span><span class="big">£333</span> <span class="per">/ month</span></div>
+        </div>
+        <div class="qfoot">
+          <div><span class="ms">info</span><span>Sage 50 integration subject to confirming you run Sage 50.</span></div>
+          <div><span class="ms">info</span><span>No free trial — it’s built around Airwave, so we’ll do a second session with Lindsay instead.</span></div>
+        </div>
+      </div>
+
+      <div class="roi-stack">
+        <div class="roi dark reveal">
+          <div class="k">Pays for itself</div>
+          <div class="n">£4,000</div>
+          <p>Uninvoiced work found in one paperwork clear-out. That’s <strong>a full year of BigChange</strong>, recovered once.</p>
+        </div>
+        <div class="roi reveal">
+          <div class="k">Replaces RAM Tracking</div>
+          <div class="n">~£200<span style="font-size:20px"> /mo</span></div>
+          <p>Roughly what you said RAM costs today. Tracking is built into BigChange — worth checking that renewal date.</p>
+          <div class="tiny">Figure as mentioned on the call; Lindsay to confirm.</div>
+        </div>
+        <div class="grow reveal"><span class="ms">person_add</span><span><b>Taking on another engineer?</b> Add a field licence at the same £50 / month when they start.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="next" id="next">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Next steps</span>
+      <h2>Get Lindsay on board. Then get going.</h2>
+      <p>She’ll be running it day to day, so her buy-in matters most. Here’s the path.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl done reveal"><div class="dot"><span class="ms">check</span></div><div class="when">Done</div><h3>Demo &amp; this page</h3><p>Recording above — worth Lindsay watching before we speak.</p></div>
+      <div class="tl key reveal"><div class="dot"><span class="ms">event</span></div><div class="when">Next week · TBC</div><h3>30 minutes with Lindsay</h3><p>Booking, invoicing, POs and Sage — her questions, her workflow.</p></div>
+      <div class="tl reveal"><div class="dot"><span class="ms">request_quote</span></div><div class="when">After that</div><h3>Formal quotation</h3><p>Final numbers, plus a check on your RAM Tracking renewal date.</p></div>
+      <div class="tl reveal"><div class="dot"><span class="ms">rocket_launch</span></div><div class="when">~8 weeks</div><h3>Onboarding &amp; go-live</h3><p>Data imported, worksheets built, team trained. Then off the whiteboard for good.</p></div>
+    </div>
+    <div class="contacts">
+      <div class="contact"><span class="av">EL</span><div><b>Emilio Lavia</b><span>Account Executive, BigChange</span></div></div>
+      <div class="contact"><span class="av"><span class="ms">near_me</span></span><div><b>Happy to come to you</b><span>I’m based in Brighton — in person works too</span></div></div>
+      <div class="contact hq"><span class="av"><span class="ms">support_agent</span></span><div><b>24/7 UK support, Leeds</b><span>For the office and the engineers</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>Prepared for Airwave Compressors · October 2026</span><span>Customer figures from published BigChange customer stories. Airwave figures as discussed on the call. Pricing indicative, excl. VAT.</span></div>
+</footer>
+
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+
+  /* ---------- Load workflow stepper ---------- */
+  var steps = [
+    {who:"Office", av:"icon:request_quote", ttl:"Quote it", own:"Office · quoting",
+     head:"Quote built from your price list",
+     pts:["New customer? Type the name or postcode — Google fills the address. Geofence the unit so the engineer knows exactly where to go.",
+          "Add parts from your loaded price list: filters, oil, separator — no hunting through old files.",
+          "Send it from BigChange with a link to accept digitally. Valid for 30 days, or whatever you set."],
+     screen:{title:"Quotation · compressor service", rows:[["Customer","New customer"],["Job type","Biannual compressor service"],["Parts","From your price list","ok"],["Valid for","30 days"],["Sent","With accept link","ok"]]}},
+    {who:"Office", av:"icon:task_alt", ttl:"Accepted", own:"Office · automatic",
+     head:"Accepted? It becomes the job",
+     pts:["The customer clicks accept. The quote updates itself and asks: turn this into a job?",
+          "Quote details copy across — nothing re-typed.",
+          "Set it to recur every six months. Every future visit is created for you."],
+     screen:{title:"Quote accepted", rows:[["Status","Accepted","ok"],["Job created","Service · from quote","ok"],["Recurrence","Every 6 months"],["Next visits","Auto-created","ok"]]}},
+    {who:"You or Lindsay", av:"icon:calendar_month", ttl:"Schedule", own:"Office · calendar",
+     head:"Wednesday, 10am. Dropped in.",
+     pts:["The job sits in the service pot until you’re ready.",
+          "Drag it into an engineer’s diary — or let the scheduling assistant pick who’s closest and cheapest to send.",
+          "It’s on his phone straight away. Move it later and both engineers are notified."],
+     screen:{title:"Schedule · Wednesday", lanes:true}},
+    {who:"Engineer", av:"icon:engineering", ttl:"On site", own:"Engineer · app",
+     head:"Checks, then the worksheet",
+     pts:["Van check before the first job of the week. Defect? Photo it — the office knows.",
+          "Site risk assessment where you need one. The job won’t start until it’s signed.",
+          "Your service worksheet as simple questions: make, model, serial, readings, photos."],
+     screen:{title:"Service worksheet", rows:[["Van check","Done","ok"],["Risk assessment","Signed","ok"],["Make / model","Answered"],["Serial no.","Answered"],["Photos","Time &amp; location stamped","ok"]]}},
+    {who:"Engineer", av:"icon:build", ttl:"Extra parts", own:"Engineer · app",
+     head:"The part he fitted is on the job",
+     pts:["Spotted something on site? He adds the part from the van stock or your price list.",
+          "It lands straight in the job’s finances — Lindsay doesn’t have to read the sheet to find it.",
+          "Result logged: serviced, further visit required, or parts to order. A return visit is created automatically."],
+     screen:{title:"Parts used", rows:[["Air filter","1 · from van stock","ok"],["Oil","From price list","ok"],["Added to job finances","Yes","ok"],["Job result","Serviced","ok"]]}},
+    {who:"Lindsay", av:"icon:payments", ttl:"Report &amp; invoice", own:"Office · accounts",
+     head:"Report out, invoice out, Sage updated",
+     pts:["The job report waits 24 hours for a once-over, then emails itself to the customer.",
+          "Tick the line items, raise the invoice, send it from BigChange.",
+          "Paid in Sage? BigChange updates. Unpaid after 30 days? It’s on the chase list."],
+     screen:{title:"Ready to invoice", rows:[["Job report","Sends after 24h review"],["Invoice","Parts &amp; labour from the job","ok"],["Sage","Paid status synced back","ok"],["Chase list","Unpaid &gt; 30 days"]]}}
+  ];
+  var stepper = document.getElementById("stepper");
+  var panel = document.getElementById("stepPanel");
+  var current = 0;
+
+  steps.forEach(function(s, i){
+    var b = document.createElement("button");
+    b.className = "step-btn";
+    b.setAttribute("role","tab");
+    b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    b.innerHTML = '<span class="num">0' + (i+1) + '</span><span class="ttl">' + s.ttl + '</span><span class="own">' + s.own + '</span><span class="bar"></span>';
+    b.addEventListener("click", function(){ showStep(i); });
+    stepper.appendChild(b);
+  });
+
+  function screenHTML(sc){
+    var h = '<div class="screen"><div class="screen-top"><span>' + sc.title + '</span><span class="dots"><i></i><i></i><i></i></span></div><div class="screen-body">';
+    if (sc.lanes){
+      var lanes = [["Engineer 1",[["",26],["g",34]]],["Engineer 2",[["n",30],["",30]]],["You",[["",22],["g",20]]]];
+      lanes.forEach(function(l){
+        h += '<div class="srow lane"><span class="tag">' + l[0] + '</span>';
+        l[1].forEach(function(bk){ h += '<span class="blk ' + bk[0] + '" style="width:' + bk[1] + '%"></span>'; });
+        h += '</div>';
+      });
+      h += '<div class="srow ok"><span class="k">Service · Wed 10:00</span><span class="v">Dropped into Engineer 1</span></div>';
+    } else {
+      sc.rows.forEach(function(r){
+        h += '<div class="srow ' + (r[2] || "") + '"><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></div>';
+      });
+    }
+    h += '</div><div class="illus">Illustrative screen — your layout is built with you</div></div>';
+    return h;
+  }
+
+  function showStep(i){
+    current = i;
+    var s = steps[i];
+    Array.prototype.forEach.call(stepper.children, function(b, j){ b.setAttribute("aria-selected", j === i ? "true" : "false"); });
+    var lis = s.pts.map(function(p){ return '<li><span class="ms">check_circle</span><span>' + p + '</span></li>'; }).join("");
+    panel.innerHTML =
+      '<div><span class="who-chip"><span class="av"><span class="ms">' + s.av.replace("icon:","") + '</span></span>' + s.who + '</span>' +
+      '<h3>' + s.head + '</h3><ul>' + lis + '</ul>' +
+      '<div class="step-nav"><button type="button" id="prevStep"' + (i === 0 ? " disabled" : "") + '><span class="ms">chevron_left</span>Back</button>' +
+      '<button type="button" id="nextStep"' + (i === steps.length - 1 ? " disabled" : "") + '>Next<span class="ms">chevron_right</span></button></div></div>' +
+      screenHTML(s.screen);
+    document.getElementById("prevStep").addEventListener("click", function(){ if (current > 0) showStep(current - 1); });
+    document.getElementById("nextStep").addEventListener("click", function(){ if (current < steps.length - 1) showStep(current + 1); });
+  }
+  showStep(0);
+
+  /* ---------- Platform feature hub (house style) ---------- */
+  var features = [
+    {ic:"calendar_month", n:"Calendar", tag:"Office", t:"The calendar view", d:"Day, week and month diaries for every engineer. Colour-coded status: scheduled, accepted, completed, failed.", o:"The day-to-day calendar you described at the top of the call."},
+    {ic:"move_down", n:"Service pots", tag:"Office", t:"Unscheduled job pots", d:"Jobs waiting to be booked sit in named pots — services, installs, return visits. You name them.", o:"Your outstanding-work “folder” — you can see it’s there."},
+    {ic:"event_repeat", n:"Recurring jobs", tag:"Office", t:"Planned maintenance", d:"Weekly, monthly, biannual or annual recurrences, created once and surfaced ahead of time.", o:"Replaces printing October’s list and ringing round from it."},
+    {ic:"smartphone", n:"Engineer app", tag:"Field", t:"The engineer app", d:"Android or iOS, phone or tablet. Jobs, directions, notes and attachments — plus 24/7 UK support for the lads.", o:"Nothing over-complicated — the bit that put you off before."},
+    {ic:"assignment", n:"Worksheets", tag:"Field", t:"Digital worksheets", d:"Your questions per job type. Answers fill your own job report template, with photos and signatures.", o:"Retires the Word sheet and Adobe Fill & Sign."},
+    {ic:"photo_camera", n:"Photos", tag:"Field", t:"Stamped photos", d:"Every photo stamped with time, date and location. Engineers can annotate them.", o:"Proof of the compressor’s condition before and after."},
+    {ic:"health_and_safety", n:"Risk assessments", tag:"Compliance", t:"Risk assessments", d:"Site-by-site RAMS or dynamic risk assessments. Can block the job until they’re signed.", o:"Only where a site needs it — you choose."},
+    {ic:"fact_check", n:"Van checks", tag:"Fleet", t:"Enforced vehicle checks", d:"Walkround checks before the first job of the week. Defects photographed and alerted to the office.", o:"Your lads already do checks — this just makes them stick."},
+    {ic:"location_on", n:"Tracking", tag:"Fleet", t:"Built-in vehicle tracking", d:"Live map, journey history and cost, speeding and driving alerts.", o:"Does what RAM Tracking does today — one less bill."},
+    {ic:"map", n:"Map planning", tag:"Office", t:"Plan on the map", d:"Layer due services onto the map around a call-out to combine trips.", o:"Out on a call-out? See which services are due nearby."},
+    {ic:"auto_awesome", n:"Scheduling assistant", tag:"Office", t:"Scheduling assistant", d:"Suggests who to send based on diary, skills and where they’ll actually be.", o:"Takes the mental load off remembering who’s where."},
+    {ic:"folder_open", n:"CRM & sites", tag:"Office", t:"CRM — customers & sites", d:"Every customer, site and contact stored once: access codes, contacts, equipment, job history.", o:"Replaces the random Word documents."},
+    {ic:"request_quote", n:"Quotes", tag:"Finance", t:"Quotes with digital accept", d:"Build quotes from your price list, send with an accept link, convert to a job in one click.", o:"Nine times out of ten your customers want a quote first."},
+    {ic:"sell", n:"Price lists", tag:"Finance", t:"Parts & price lists", d:"Import supplier price books and your own parts list. Reuse them on quotes, jobs and invoices.", o:"Filters, oil and parts across different brands — loaded once."},
+    {ic:"inventory_2", n:"Stock", tag:"Finance", t:"Stock & POs", d:"Warehouse and van stock, plus purchase orders raised against jobs.", o:"You hold your own stock — now you can see it."},
+    {ic:"receipt_long", n:"Invoicing", tag:"Finance", t:"Invoicing from the job", d:"Tick the job’s line items, invoice, send from BigChange with the job report attached.", o:"No re-typing what the engineer already logged."},
+    {ic:"sync_alt", n:"Sage", tag:"Finance", t:"Sage 50 integration", d:"Invoices sync to Sage 50 and paid status comes back. Sage stays your ledger.", o:"To confirm: which version of Sage you run upstairs."},
+    {ic:"filter_list", n:"List view", tag:"Management", t:"Filtered lists", d:"Any filter you like: return visits, waiting parts, unpaid invoices, unaccepted quotes. Save as favourites.", o:"Finds the next £4k before it goes missing."},
+    {ic:"replay", n:"Return visits", tag:"Office", t:"Automatic return visits", d:"A “further visit required” result alerts the office and creates the follow-up job.", o:"No more return visits lost in the paperwork."},
+    {ic:"language", n:"Booking portal", tag:"Customers", t:"Customer booking portal", d:"Customers request call-outs, book services and download job reports and invoices.", o:"Fewer calls to your mobile — everyone’s got your number."}
+  ];
+  var hub = document.getElementById("platform-hub");
+  var tileGrid = document.getElementById("feature-tile-grid");
+  var fdc = document.getElementById("feature-display-content");
+  var activeIndex = 0;
+
+  function showFeature(f){
+    fdc.style.opacity = 0;
+    setTimeout(function(){
+      fdc.innerHTML = '<span class="fd-tag">' + f.tag + '</span>' +
+        '<div class="fd-head"><span class="ms">' + f.ic + '</span><h3>' + f.t + '</h3></div>' +
+        '<p class="fd-desc">' + f.d + '</p>' +
+        '<div class="fd-you"><span class="ms">check_circle</span><span>For Airwave: ' + f.o + '</span></div>';
+      fdc.style.opacity = 1;
+    }, 180);
+  }
+  function setActive(list, el){ Array.prototype.forEach.call(list, function(x){ x.classList.remove("active"); }); el.classList.add("active"); }
+
+  features.forEach(function(f, i){
+    var t = document.createElement("button");
+    t.type = "button";
+    t.className = "feature-tile" + (i === activeIndex ? " active" : "");
+    t.innerHTML = '<span class="ms">' + f.ic + '</span><span class="feature-name">' + f.n + '</span>';
+    t.addEventListener("click", function(){ activeIndex = i; showFeature(f); setActive(tileGrid.querySelectorAll(".feature-tile"), t); });
+    tileGrid.appendChild(t);
+  });
+
+  function buildHub(){
+    Array.prototype.forEach.call(hub.querySelectorAll(".hub-node, .hub-line"), function(el){ el.remove(); });
+    var w = hub.offsetWidth;
+    if (!w) return;
+    var cx = w / 2, cy = hub.offsetHeight / 2, nodeR = 43;
+    var outerRadius = w / 2 - nodeR - 2;
+    var innerRadius = outerRadius - 106;
+    var outer = features.filter(function(_, i){ return i % 2 === 0; });
+    var inner = features.filter(function(_, i){ return i % 2 !== 0; });
+    function place(list, radius, isOuter){
+      var step = (2 * Math.PI) / list.length;
+      list.forEach(function(f, i){
+        var angle = (i * step) - (Math.PI / 2) + (isOuter ? 0 : step / 2);
+        var x = radius * Math.cos(angle) + cx - nodeR;
+        var y = radius * Math.sin(angle) + cy - nodeR;
+        var idx = features.indexOf(f);
+        var node = document.createElement("div");
+        node.className = "hub-node" + (idx === activeIndex ? " active" : "");
+        node.setAttribute("role","button");
+        node.setAttribute("tabindex","0");
+        node.setAttribute("aria-label", f.t);
+        node.style.left = x + "px";
+        node.style.top = y + "px";
+        node.innerHTML = '<span class="ms">' + f.ic + '</span><span class="feature-name">' + f.n + '</span>';
+        var go = function(){ activeIndex = idx; showFeature(f); setActive(hub.querySelectorAll(".hub-node"), node); };
+        node.addEventListener("click", go);
+        node.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
+        var line = document.createElement("div");
+        line.className = "hub-line";
+        var dx = x + nodeR - cx, dy = y + nodeR - cy;
+        line.style.width = Math.max(Math.sqrt(dx*dx + dy*dy) - nodeR + 2, 0) + "px";
+        line.style.top = cy + "px";
+        line.style.left = cx + "px";
+        line.style.transform = "rotate(" + (Math.atan2(dy, dx) * 180 / Math.PI) + "deg)";
+        hub.appendChild(line);
+        hub.appendChild(node);
+      });
+    }
+    place(outer, outerRadius, true);
+    place(inner, innerRadius, false);
+  }
+  buildHub();
+  var rt;
+  window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(buildHub, 200); });
+  showFeature(features[activeIndex]);
+
+  /* ---------- Reveal on scroll ---------- */
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>
